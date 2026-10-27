@@ -1,0 +1,184 @@
+:root {
+  --bg: #faf6ef;
+  --surface: #ffffff;
+  --text: #2b2118;
+  --muted: #7a6a5a;
+  --border: #e8dfd2;
+  --accent: #8a4b1f;
+  --accent-hover: #6f3b17;
+  --beans: #6b2f2f;
+  --rice: #c9a75a;
+  --combo: #5a7a4a;
+  --danger: #b23a3a;
+  --ok: #2f7a4a;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner, main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.logo { font-weight: 700; font-size: 1.25rem; color: var(--accent); text-decoration: none; }
+
+main { padding-top: 24px; padding-bottom: 48px; }
+
+.hero h1 { margin: 0 0 4px; font-size: 1.75rem; }
+.hero p { margin: 0 0 20px; color: var(--muted); }
+
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+
+button, .btn {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+button:hover { border-color: var(--accent); }
+button.active, .btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--accent-hover); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-block { width: 100%; padding: 12px; border-radius: var(--radius); font-weight: 600; }
+.btn-danger { color: var(--danger); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-art {
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.75rem;
+}
+.card-art.beans { background: #f3e4e0; }
+.card-art.rice { background: #f6efdc; }
+.card-art.combo { background: #e6eedf; }
+
+.card-body { padding: 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.card-body h3 { margin: 0; font-size: 1.05rem; }
+.card-body p { margin: 0; color: var(--muted); font-size: 0.9rem; flex: 1; }
+.meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--muted); }
+.price { font-size: 1.15rem; font-weight: 700; color: var(--text); }
+.tag { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+.tag.beans { color: var(--beans); }
+.tag.rice { color: #9a7a2a; }
+.tag.combo { color: var(--combo); }
+
+/* Cart drawer */
+.overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.35);
+  display: none; z-index: 20;
+}
+.overlay.open { display: block; }
+.drawer {
+  position: fixed; top: 0; right: 0; height: 100%;
+  width: min(420px, 100%);
+  background: var(--surface);
+  z-index: 30;
+  transform: translateX(100%);
+  transition: transform 0.2s ease;
+  display: flex; flex-direction: column;
+}
+.drawer.open { transform: translateX(0); }
+.drawer-head { display: flex; justify-content: space-between; align-items: center; padding: 16px; border-bottom: 1px solid var(--border); }
+.drawer-head h2 { margin: 0; font-size: 1.2rem; }
+.drawer-body { padding: 16px; overflow-y: auto; flex: 1; }
+
+.cart-line { display: flex; justify-content: space-between; gap: 8px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.cart-line .name { font-weight: 600; }
+.cart-line small { color: var(--muted); }
+.qty { display: flex; align-items: center; gap: 6px; }
+.qty button { padding: 2px 10px; }
+.total-row { display: flex; justify-content: space-between; font-weight: 700; font-size: 1.1rem; margin: 16px 0; }
+
+form { display: flex; flex-direction: column; gap: 10px; }
+label { font-size: 0.85rem; font-weight: 600; display: flex; flex-direction: column; gap: 4px; }
+input, textarea, select {
+  font: inherit; padding: 9px 10px;
+  border: 1px solid var(--border); border-radius: 8px; background: #fff; color: var(--text);
+}
+textarea { resize: vertical; min-height: 60px; }
+
+.msg { padding: 10px 12px; border-radius: 8px; font-size: 0.9rem; }
+.msg.error { background: #f8e3e3; color: var(--danger); }
+.msg.success { background: #e2f1e7; color: var(--ok); }
+.empty { color: var(--muted); text-align: center; padding: 24px 0; }
+
+.badge {
+  background: var(--accent); color: #fff; border-radius: 999px;
+  padding: 0 7px; font-size: 0.8rem; margin-left: 4px;
+}
+
+/* Admin */
+.panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin-bottom: 20px; }
+.panel h2 { margin-top: 0; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { color: var(--muted); font-weight: 600; }
+.table-wrap { overflow-x: auto; }
+.form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
+.status { font-weight: 600; text-transform: capitalize; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; }
+.stat .label { color: var(--muted); font-size: 0.85rem; }
+.stat .value { font-size: 1.5rem; font-weight: 700; }
+.hidden { display: none !important; }
+
+/* Store-wide notice (e.g. orders paused) */
+.notice {
+  background: var(--accent);
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  padding: 10px 16px;
+}
+.card-art { font-size: 3.25rem; }
+.site-footer { text-align: center; color: var(--muted); font-size: 0.85rem; padding: 24px 16px 40px; }
+.toggle { flex-direction: row; align-items: center; gap: 8px; font-size: 1rem; }
+.toggle input { width: 18px; height: 18px; }

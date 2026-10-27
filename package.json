@@ -1,0 +1,10 @@
+{
+  "name": "beans-rice-shop",
+  "version": "1.0.0",
+  "description": "A simple online store for packaged beans and rice",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "MIT"
+}

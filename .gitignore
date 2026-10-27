@@ -1,0 +1,4 @@
+node_modules/
+*.tmp
+# Customer orders contain personal details - keep them out of git
+data/orders.json

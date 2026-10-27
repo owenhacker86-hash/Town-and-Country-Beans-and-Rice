@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Town and Country Beans and Rice</title>
+  <meta name="description" content="Packaged rice and bean meals inspired by Mexican, Colombian and Indian cooking.">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="notice hidden" id="notice" role="status"></div>
+
+  <header>
+    <div class="header-inner">
+      <a class="logo" href="/">🫘 Town and Country Beans and Rice</a>
+      <button id="cart-btn" class="hidden">Cart <span class="badge" id="cart-count">0</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Rice and beans from around the world</h1>
+      <p>Three packaged rice-and-bean pairings inspired by Mexican, Colombian and Indian kitchens.</p>
+    </section>
+
+    <div class="grid" id="products"></div>
+  </main>
+
+  <footer class="site-footer">© <span id="year"></span> Town and Country Beans and Rice</footer>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer" id="drawer" aria-label="Shopping cart">
+    <div class="drawer-head">
+      <h2 id="drawer-title">Your cart</h2>
+      <button id="close-cart" aria-label="Close cart">✕</button>
+    </div>
+    <div class="drawer-body">
+      <div id="cart-view">
+        <div id="cart-lines"></div>
+        <div class="total-row"><span>Total</span><span id="cart-total">$0.00</span></div>
+        <button class="btn-primary btn-block" id="to-checkout">Checkout</button>
+      </div>
+
+      <form id="checkout-form" class="hidden">
+        <label>Full name <input name="name" required autocomplete="name"></label>
+        <label>Phone <input name="phone" required autocomplete="tel"></label>
+        <label>Email (optional) <input name="email" type="email" autocomplete="email"></label>
+        <label>Delivery address <textarea name="address" required autocomplete="street-address"></textarea></label>
+        <label>Payment
+          <select name="payment">
+            <option value="cash">Cash on delivery</option>
+            <option value="transfer">Bank transfer</option>
+          </select>
+        </label>
+        <label>Notes (optional) <textarea name="notes"></textarea></label>
+        <div class="total-row"><span>Total</span><span id="checkout-total">$0.00</span></div>
+        <div id="checkout-msg"></div>
+        <button type="submit" class="btn-primary btn-block">Place order</button>
+        <button type="button" id="back-to-cart">← Back to cart</button>
+      </form>
+
+      <div id="confirmation" class="hidden"></div>
+    </div>
+  </aside>
+
+  <script src="/app.js"></script>
+</body>
+</html>

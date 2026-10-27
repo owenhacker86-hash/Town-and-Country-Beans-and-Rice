@@ -1,0 +1,32 @@
+[
+  {
+    "id": "mexican1",
+    "name": "Mexican Tomato Rice & Refried Beans",
+    "category": "combo",
+    "icon": "🇲🇽",
+    "weight": "",
+    "price": 0.99,
+    "stock": 50,
+    "description": "Tomato-seasoned rice with refried beans, Mexican style."
+  },
+  {
+    "id": "colomb01",
+    "name": "Colombian Coconut Rice & Black Beans",
+    "category": "combo",
+    "icon": "🇨🇴",
+    "weight": "",
+    "price": 0.99,
+    "stock": 50,
+    "description": "Coconut rice with black beans, inspired by Colombian home cooking."
+  },
+  {
+    "id": "indian01",
+    "name": "Indian Jasmine Rice & Lentil Blend",
+    "category": "combo",
+    "icon": "🇮🇳",
+    "weight": "",
+    "price": 0.99,
+    "stock": 50,
+    "description": "Jasmine rice blended with lentils, Indian style."
+  }
+]
